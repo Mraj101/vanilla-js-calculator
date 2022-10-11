@@ -6,10 +6,18 @@ body{
     max-height: 100vh;
     padding: 0;
     margin: 0;
+
 }
-.calculator-grid{
-    background: linear-gradient(to right,rgb(54, 148, 109),rgb(78, 149, 190));
+/* calculator{
+    width: 100vw;
     height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+.calculator-grid{
+    height: 91vh;
+    background: linear-gradient(to right,rgb(54, 148, 109),rgb(78, 149, 190));
     display: grid;
     align-content: center;
     justify-content: center;
@@ -23,7 +31,35 @@ body{
     outline: none;
     background-color:rgb(255, 255, 255,.6);
 }
-
+.span-two{
+    grid-column: span 2;
+    border-bottom-right-radius: 10px;
+}
+.dot{
+    border-bottom-left-radius: 10px;
+}
+.output{
+    grid-column: 1/-1;
+    background-color:rgba(0, 0, 0,.8);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.output>.previous-operand{
+    color: rgb(245, 228, 228,.7);
+    font-size: 1.543rem;
+    
+}
+.output>.current-operand{
+    font-size: 1.143rem;
+    color: rgb(245, 228, 228,.7);
+}
 
 .calculator-grid>button:hover{
     background-color: rgb(255, 255, 255,.9);
