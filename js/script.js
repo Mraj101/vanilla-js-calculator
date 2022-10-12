@@ -29,6 +29,11 @@ class Calculator
         this.currentOperand=''
     } 
 
+    delete()
+    {
+        this.currentOperand=this.currentOperand.toString().slice(0,-1);
+    }
+
     computeNumbers(){
             let computation;
             const prev=parseFloat(this.previousOperand);
@@ -95,5 +100,10 @@ operators.forEach(button =>{
     
     equals.addEventListener('click',()=>{
         calculator.computeNumbers();
+        calculator.updateDisplay();
+    })
+
+deleteBtn.addEventListener('click',()=>{
+        calculator.delete();
         calculator.updateDisplay();
     })
