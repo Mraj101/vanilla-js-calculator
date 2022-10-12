@@ -24,7 +24,8 @@ class Calculator
         {
             this.computeNumbers();
         }
-        this.previousOperand=this.currentOperand+' '+operation.toString();
+        this.operation=operation;
+        this.previousOperand=this.currentOperand;
         this.currentOperand=''
     } 
 
@@ -52,6 +53,7 @@ class Calculator
                 default: return;
             }
         this.previousOperand=computation;
+        this.operation=undefined;
         this.currentOperand='';
     }
 
@@ -59,8 +61,8 @@ class Calculator
         this.currentOperandTxt.innerText=this.currentOperand;
         this.previousOperandTxt.innerText=this.previousOperand;
     }
-
 }
+
 
 const numbers=document.querySelectorAll("[data-number]");
 const operators=document.querySelectorAll("[data-op]");
@@ -69,8 +71,8 @@ const clearBtn=document.querySelector("[data-clear]");
 const equals=document.querySelector("[data-equals]");
 const previousOperandTxt=document.querySelector("[data-previous-operand]");
 const currentOperandTxt=document.querySelector("[data-current-operand]");
-
 const calculator=new Calculator(previousOperandTxt,currentOperandTxt);
+
 numbers.forEach(button =>{
     button.addEventListener('click',()=>{
         calculator.appendNumbers(button.innerText);
