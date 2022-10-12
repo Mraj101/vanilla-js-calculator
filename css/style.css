@@ -62,12 +62,12 @@ body{
 
 .output>.previous-operand{
     color: rgb(245, 228, 228,.7);
-    font-size: 1.543rem;
+    font-size: 1.143rem;
     
 }
 
 .output>.current-operand{
-    font-size: 1.143rem;
+    font-size: 1.543rem;
     color: rgb(245, 228, 228,.7);
 }
 
