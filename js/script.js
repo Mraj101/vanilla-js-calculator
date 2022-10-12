@@ -1,7 +1,7 @@
 class Calculator {
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-      this.previousOperandTextElement = previousOperandTextElement
-      this.currentOperandTextElement = currentOperandTextElement
+    constructor(previousOperandTxt, currentOperandTxt) {
+      this.previousOperandTxt = previousOperandTxt
+      this.currentOperandTxt = currentOperandTxt
       this.clear()
     }
   
@@ -45,7 +45,7 @@ class Calculator {
         case '*':
           computation = prev * current
           break
-        case '÷':
+        case '/':
           computation = prev / current
           break
         default:
@@ -74,27 +74,27 @@ class Calculator {
     }
   
     updateDisplay() {
-      this.currentOperandTextElement.innerText =
+      this.currentOperandTxt.innerText =
         this.getDisplayNumber(this.currentOperand)
       if (this.operation != null) {
-        this.previousOperandTextElement.innerText =
+        this.previousOperandTxt.innerText =
           `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
       } else {
-        this.previousOperandTextElement.innerText = ''
+        this.previousOperandTxt.innerText = ''
       }
     }
   }
   
   
   const numberButtons = document.querySelectorAll('[data-number]')
-  const operationButtons = document.querySelectorAll('[data-operation]')
+  const operationButtons = document.querySelectorAll('[data-op]')
   const equalsButton = document.querySelector('[data-equals]')
   const deleteButton = document.querySelector('[data-delete]')
-  const allClearButton = document.querySelector('[data-all-clear]')
-  const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-  const currentOperandTextElement = document.querySelector('[data-current-operand]')
+  const allClearButton = document.querySelector('[data-clear]')
+  const previousOperandTxt = document.querySelector('[data-previous-operand]')
+  const currentOperandTxt = document.querySelector('[data-current-operand]')
   
-  const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+  const calculator = new Calculator(previousOperandTxt, currentOperandTxt)
   
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {

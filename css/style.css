@@ -33,7 +33,7 @@ body{
     font-size: 1.1rem;
     border: 1px solid white;
     outline: none;
-    background-color:rgb(255, 255, 255,.6);
+    background-color:rgba(160, 172, 211, 0.6);
 }
 
 .span-two{
@@ -48,7 +48,7 @@ body{
 .output{
     height: 18vh;
     grid-column: 1/-1;
-    background-color:rgba(0, 0, 0,.8);
+    background-color:rgba(30, 48, 49, 0.9);
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
