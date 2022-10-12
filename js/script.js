@@ -18,13 +18,39 @@ class Calculator
 
     chooseOperations(operation)
     {
+        if(this.currentOperand==='')return
+        if(this.previousOperand!=='')
+        {
+            this.computeNumbers();
+        }
         this.operation=operation;
-        this.previousOperand=this.currentOperand+operation.toString();
+        this.previousOperand=this.currentOperand+' '+operation.toString();
         this.currentOperand=''
     } 
 
     computeNumbers(){
+            let computatoin;
+            const prev=parseFloat(this.previousOperand);
+            const current=parseFloat(this.currentOperand);
+            if(isNaN(this.previousOperand) || isNaN(this.currentOperand)) return
 
+            switch(this.operation)
+            {
+                case '+':
+                    computatoin=prev+current;
+                    break;
+
+                case '-':
+                    computatoin=prev-current;
+                    break;
+                case '*':
+                    computatoin=prev*current;
+                    break;
+                case '/':
+                    computatoin=prev/current;
+                    break;
+                default: return;
+            }
     }
 
     updateDisplay(){
@@ -60,5 +86,10 @@ operators.forEach(button =>{
 
     clearBtn.addEventListener('click',()=>{
         calculator.clear();
+        calculator.updateDisplay();
+    })
+    
+    equals.addEventListener('click',()=>{
+        calculator.computeNumbers();
         calculator.updateDisplay();
     })
