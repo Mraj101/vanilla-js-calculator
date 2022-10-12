@@ -19,17 +19,17 @@ class Calculator
     chooseOperations(operation)
     {
         if(this.currentOperand==='')return
+        this.operation=operation;
         if(this.previousOperand!=='')
         {
             this.computeNumbers();
         }
-        this.operation=operation;
         this.previousOperand=this.currentOperand+' '+operation.toString();
         this.currentOperand=''
     } 
 
     computeNumbers(){
-            let computatoin;
+            let computation;
             const prev=parseFloat(this.previousOperand);
             const current=parseFloat(this.currentOperand);
             if(isNaN(this.previousOperand) || isNaN(this.currentOperand)) return
@@ -37,20 +37,22 @@ class Calculator
             switch(this.operation)
             {
                 case '+':
-                    computatoin=prev+current;
+                    computation=prev+current;
                     break;
 
                 case '-':
-                    computatoin=prev-current;
+                    computation=prev-current;
                     break;
                 case '*':
-                    computatoin=prev*current;
+                    computation=prev*current;
                     break;
                 case '/':
-                    computatoin=prev/current;
+                    computation=prev/current;
                     break;
                 default: return;
             }
+        this.previousOperand=computation;
+        this.currentOperand='';
     }
 
     updateDisplay(){
@@ -64,7 +66,7 @@ const numbers=document.querySelectorAll("[data-number]");
 const operators=document.querySelectorAll("[data-op]");
 const deleteBtn=document.querySelector("[data-delete]");
 const clearBtn=document.querySelector("[data-clear]");
-const equals=document.querySelector("[data-equal]");
+const equals=document.querySelector("[data-equals]");
 const previousOperandTxt=document.querySelector("[data-previous-operand]");
 const currentOperandTxt=document.querySelector("[data-current-operand]");
 
